@@ -4,23 +4,43 @@
         <div class="col-lg-6">
             <?php Flasher::flash(); ?>
         </div>
+
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <button type="button" class="tombolTambahData btn btn primary" id="tombolTambahData" data-toggle="modal" data-target="#formModal">
+                Tambah Data Mahasiswa
+            </button>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <form action="<?= BASEURL; ?>/mahasiswa/cari" method="POST">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Cari Mahasiswa ..." name="keyword" id="keyword" autocomplete="off">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-primary" type="submit" id="tombolCari">Cari</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
     <div class="row">
         <divv class="col-lg-6">
-
-        <button type="button" class="tombolTambahData btn btn primary" id="tombolTambahData" data-toggle="modal" data-target="#formModal">
-            Tambah Data Mahasiswa
-        </button>
+            
 
             <h3> Daftar Mahasiswa </h3>
                 <ul class="list-group">
                     <?php foreach($data['mhs'] as $mhs): ?>
                        <li class="list-group-item">
                            <?= $mhs['nama'] ?>
-    <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>"class="badge badge-primary float-right ml-1">detail</a>
-    <a href="<?= BASEURL ?>/mahasiswa/ubah/<?= $mhs['id'] ?>"class="tampilModalUbah badge badge-success float-right ml-1" data-toggle="modal" data-target="#formModal" data-id="<?= $mhs['id'] ?>">Ubah</a>
-    <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id'] ?>"class="badge badge-danger float-right ml-1" onclick="return confirm('yakin?')">hapus</a>
+                                <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>"class="badge badge-primary float-right ml-1">detail</a>
+                                <a href="<?= BASEURL ?>/mahasiswa/ubah/<?= $mhs['id'] ?>"class="tampilModalUbah badge badge-success float-right ml-1" data-toggle="modal" data-target="#formModal" data-id="<?= $mhs['id'] ?>">Ubah</a>
+                                <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id'] ?>"class="badge badge-danger float-right ml-1" onclick="return confirm('yakin?')">hapus</a>
+                            <?php endforeach ?>
                         </li>
-                    <?php endforeach ?>
                 </ul>                
         </div>
     </div>

@@ -17,8 +17,6 @@ $(function() {
         $('.modal-body form').attr('action', 'http://localhost/latihan/belajar_mvc/public/mahasiswa/ubah')
         const id = $(this).data('id'); 
 
-        console.log(id);
-
         $.ajax({
             url: 'http://localhost/latihan/belajar_mvc/public/mahasiswa/getUbah',
             data: {id : id},
